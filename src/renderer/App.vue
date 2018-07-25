@@ -21,13 +21,6 @@
 <script>
 import SideBar from './components/SideBar.vue'
 export default {
-  data() {
-    var isLogin = this.$store.state.isLogin
-    console.log('isLogin: ' + isLogin)
-    return {
-      isLogin: isLogin
-    }
-  },
   components: {
     sidebar: SideBar,
   }

@@ -7,10 +7,22 @@
   </div>
 </template>
 
+<style>
+body {
+  margin: 0;
+}
+</style>
+
+
 <script>
 export default {
   methods: {
     startHacking () {
+      var loadingObject = this.$startLoading()
+      setTimeout(()=>{
+        loadingObject.close()
+      }, 2000)
+
       this.$notify({
         title: 'It works!',
         type: 'success',
