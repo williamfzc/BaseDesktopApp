@@ -2,7 +2,7 @@
   <el-col :span="18" id='sideBar'>
     <h2>{{title}}</h2>
     <el-menu :default-active="activeIndex" router>
-      <el-menu-item index="home">首页</el-menu-item>
+      <el-menu-item index="/">首页</el-menu-item>
       <el-menu-item index="about">关于</el-menu-item>
     </el-menu>
   </el-col>

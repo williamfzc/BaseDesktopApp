@@ -1,9 +1,9 @@
 {
-  "name": "a_qube_client",
+  "name": "base_desktop_app",
   "version": "0.0.0",
   "author": "williamfzc <178894043@qq.com>",
   "description": "An electron-vue project",
-  "license": null,
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -19,7 +19,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "a_qube_client",
+    "productName": "BaseDesktopApp",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"

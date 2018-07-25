@@ -1,6 +1,8 @@
-# a_qube_client
+# Base Desktop App
 
-> An electron-vue project
+> electron + vue + element UI
+> 快速构建一个美观可靠的桌面应用
+
 
 #### Build Setup
 
