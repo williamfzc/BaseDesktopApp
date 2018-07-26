@@ -39,6 +39,7 @@ export default {
         if (error) {
           console.log('get a error: ' + error)
           this.cmdResult = error
+          loadingObject.close()
           return
         }
         console.log(stdout)

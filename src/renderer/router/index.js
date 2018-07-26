@@ -19,5 +19,5 @@ const routes = routeOptions.map(route => {
 
 export default new Router({
   routes: routes,
-  mode: 'history'
+  mode: 'hash'
 })
