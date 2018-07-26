@@ -3,8 +3,7 @@
 > electron + vue + element UI
 > 快速构建一个美观可靠的桌面应用
 
-
-#### Build Setup
+## Build Setup
 
 ``` bash
 # install dependencies

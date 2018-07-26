@@ -19,23 +19,14 @@ export default {
   data() {
     return {
       cmdResult: '',
-      cmdInput: ''
+      cmdInput: '',
+      qubePath: '',
     }
   },
   methods: {
-    execCmd: function() {
-      if (this.cmdInput == '') {
-        this.$notify({
-          title: '输入不能为空',
-          type: 'error',
-          duration: 1000
-        })
-        return
-      }
-
+    _execCmd: function(cmdStr) {
       var loadingObject = this.$startLoading()
-      console.log('ready to exec: ' + this.cmdInput)
-      exec(this.cmdInput, (error, stdout, stderr) => {
+      exec(cmdStr, (error, stdout, stderr) => {
         if (error) {
           console.log('get a error: ' + error)
           this.cmdResult = error
@@ -47,6 +38,19 @@ export default {
         this.cmdResult = stdout + '\n' + stderr
         loadingObject.close()
       })
+    },
+
+    execCmd: function() {
+      if (this.cmdInput == '') {
+        this.$notify({
+          title: '输入不能为空',
+          type: 'error',
+          duration: 1000
+        })
+        return
+      }
+      console.log('ready to exec: ' + this.cmdInput)
+      this._execCmd(this.cmdInput)
     }
   }
 }
