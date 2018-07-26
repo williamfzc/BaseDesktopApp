@@ -24,6 +24,15 @@ export default {
   },
   methods: {
     execCmd: function() {
+      if (this.cmdInput == '') {
+        this.$notify({
+          title: '输入不能为空',
+          type: 'error',
+          duration: 1000
+        })
+        return
+      }
+
       var loadingObject = this.$startLoading()
       console.log('ready to exec: ' + this.cmdInput)
       exec(this.cmdInput, (error, stdout, stderr) => {
