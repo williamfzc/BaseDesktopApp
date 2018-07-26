@@ -6,6 +6,7 @@ Vue.use(Router)
 const routeOptions = [
   {path: '/', component: 'Home'},
   {path: '/home', component: 'Home'},
+  {path: '/dev', component: 'Dev'},
   {path: '/about', component: 'About'},
 ]
 
