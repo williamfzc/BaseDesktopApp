@@ -36,6 +36,6 @@ export default {
   components: {
     titlebar: TitleBar,
     sidebar: SideBar
-  }
+  },
 };
 </script>
