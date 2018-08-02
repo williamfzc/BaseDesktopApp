@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2> 该页面用于确保electron与命令行的交互正常，输入指令点击运行即可看到结果。 </h2>
-    <p>{{cmdResult}}</p>
+    <h4> 正常输入命令行指令点击运行即可看到结果。例如dir、ls等等。 </h4>
+    <p>{{ cmdResult }}</p>
     <el-container>
       <el-input
         placeholder="输入命令行指令"
@@ -20,27 +20,36 @@ export default {
     return {
       cmdResult: '',
       cmdInput: '',
-      qubePath: '',
     }
   },
   methods: {
-    _execCmd: function(cmdStr) {
-      var loadingObject = this.$startLoading()
+    // exec command
+    _execCmd: function(cmdStr, loadingStr) {
+      // start loading animation
+      loadingStr = loadingStr || 'loading'
+      var loadingObject = this.$startLoading(loadingStr)
+
+      // start exec
       exec(cmdStr, (error, stdout, stderr) => {
+        // error happened
         if (error) {
           console.log('get a error: ' + error)
           this.cmdResult = error
           loadingObject.close()
           return
         }
+        // no error
         console.log(stdout)
         console.log(stderr)
         this.cmdResult = stdout + '\n' + stderr
+
+        // stop loading animation
         loadingObject.close()
       })
     },
 
     execCmd: function() {
+      // empty input
       if (this.cmdInput == '') {
         this.$notify({
           title: '输入不能为空',
@@ -49,6 +58,7 @@ export default {
         })
         return
       }
+      // not empty
       console.log('ready to exec: ' + this.cmdInput)
       this._execCmd(this.cmdInput)
     }

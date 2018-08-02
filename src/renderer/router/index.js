@@ -13,7 +13,7 @@ const routeOptions = [
 const routes = routeOptions.map(route => {
   return {
     ...route,
-    component: () => import(`../components/${route.component}.vue`)
+    component: () => import(`../pages/${route.component}/${route.component}.vue`)
   }
 })
 

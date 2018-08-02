@@ -1,8 +1,8 @@
 {
   "name": "base_desktop_app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "williamfzc <178894043@qq.com>",
-  "description": "An electron-vue project",
+  "description": "electron + vue + element = cool desktop app",
   "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "build": {
     "productName": "BaseDesktopApp",
-    "appId": "org.simulatedgreg.electron-vue",
+    "appId": "com.williamfzc.basedesktopapp",
     "directories": {
       "output": "build"
     },
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "electron-titlebar": "0.0.3",
+    "electron-store": "^2.0.0",
     "element-ui": "^2.3.4",
     "vue": "^2.3.3",
     "vue-electron": "^1.0.6",

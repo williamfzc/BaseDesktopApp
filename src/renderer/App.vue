@@ -2,9 +2,7 @@
   <div id="app">
     <el-container>
       <el-header>
-        <div id="electron-titlebar" class="drag" style="text-align: left; line-height: 40px; ">
-          Base Desktop :)
-        </div>
+        <titlebar/>
       </el-header>
       <el-container>
         <el-aside>
@@ -20,19 +18,23 @@
 
 <style>
 #app {
-  font-family: Helvetica, sans-serif;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
   text-align: center;
 }
-el-header {
-  padding: 0%;
-  margin: 0%;
+.el-header {
+  position: relative;
+  -webkit-app-region: drag;
+  text-align: left;
+  background-color: #2C423F;
 }
 </style>
 
 <script>
-import SideBar from "./components/SideBar.vue";
+import TitleBar from "./components/TitleBar.vue"
+import SideBar from "./components/SideBar.vue"
 export default {
   components: {
+    titlebar: TitleBar,
     sidebar: SideBar
   }
 };
