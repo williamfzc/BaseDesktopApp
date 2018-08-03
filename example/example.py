@@ -1,5 +1,5 @@
 import time
 
 
-time.sleep(5)
+time.sleep(2)
 print('hello world!')

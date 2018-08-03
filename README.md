@@ -60,9 +60,36 @@ npm run dev
 
 如果环境没有错误的话，应该可以看到app已经被正常拉起了。
 
-### 如何封装已有的工具
+### 如何关联现有的工具
 
-TODO
+首先我们需要新增一个页面：
+
+- 在pages中新增vue文件，例如新增一个example模块：
+    - 创建example文件夹
+    - 在里面创建Example.vue文件
+- 在components/SideBar.vue中仿照其他项目新增
+    - `<el-menu-item index="/example"><i class="el-icon-edit"></i>例子</el-menu-item>`
+- 在router/index.js中仿照其他项目新增
+    - `{path: '/example', component: 'Example'},`
+
+这样就可以看到在侧边栏中已经有新增的项目了。
+
+假设我们需要加入的是一个python脚本（比如放置在根目录的example文件夹中），你只需要在Example.vue下新增方法：
+
+    execExample: function() {
+        this.execCmd(
+            // 命令行怎么运行它就怎么写
+            `python ./example/example.py`,
+            // 加载动效的文字
+            '运行python example :)',
+        )
+    }
+
+然后点击运行：
+
+![](./pic/basedesktop_run_example.gif)
+
+就可以啦！
 
 ## 依赖项目
 
