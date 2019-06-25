@@ -34,16 +34,6 @@
 
 ### 安装依赖
 
-推荐使用yarn。当然npm也是可以的。
-
-yarn:
-
-``` bash
-yarn
-```
-
-npm:
-
 ``` bash
 npm install
 ```
@@ -53,10 +43,6 @@ npm install
 在环境配置完毕之后，执行：
 
 ```
-yarn:
-yarn run dev
-
-npm:
 npm run dev
 ```
 
@@ -78,14 +64,16 @@ npm run dev
 
 假设我们需要加入的是一个python脚本（比如放置在根目录的example文件夹中），你只需要在Example.vue下新增方法：
 
-    execExample: function() {
-        this.execCmd(
-            // 命令行怎么运行它就怎么写
-            `python ./example/example.py`,
-            // 加载动效的文字
-            '运行python example :)',
-        )
-    }
+```js
+execExample: function() {
+    this.execCmd(
+        // 命令行怎么运行它就怎么写
+        `python ./example/example.py`,
+        // 加载动效的文字
+        '运行python example :)',
+    )
+}
+```
 
 然后点击运行：
 
