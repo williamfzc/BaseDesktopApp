@@ -62,17 +62,18 @@ npm run dev
 
 这样就可以看到在侧边栏中已经有新增的项目了。
 
-假设我们需要加入的是一个python脚本（比如放置在根目录的example文件夹中），你只需要在Example.vue下新增方法：
+假设我们需要加入的是一个 python 脚本（比如放置在根目录的 example文件夹 中），你只需要在 `Example.vue` 下新增方法：
 
 ```js
-execExample: function() {
-    this.execCmd(
-        // 命令行怎么运行它就怎么写
-        `python ./example/example.py`,
-        // 加载动效的文字
-        '运行python example :)',
-    )
-}
+this.$execCmd(
+    // 命令行怎么运行它就怎么写
+    `python ./example/example.py`,
+    // 加载动效的文字
+    "运行python example :)",
+    // 结果存放，如果按默认设定，在执行完成后： 
+    // `this['cmdResult'] = result`
+    'cmdResult',
+)
 ```
 
 然后点击运行：
