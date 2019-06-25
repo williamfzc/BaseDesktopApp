@@ -2,6 +2,8 @@
 
 > electron + vue + element UI = excellent desktop app
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 为你的工具快速构建一个界面
 
 ![](./pic/basedesktop_desc.png)

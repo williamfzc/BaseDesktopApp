@@ -1,19 +1,22 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain } from "electron"
 
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
  */
-if (process.env.NODE_ENV !== 'development') {
-  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+if (process.env.NODE_ENV !== "development") {
+  global.__static = require("path")
+    .join(__dirname, "/static")
+    .replace(/\\/g, "\\\\")
 }
 
 let mainWindow
-const winURL = process.env.NODE_ENV === 'development'
-  ? `http://localhost:9080`
-  : `file://${__dirname}/index.html`
+const winURL =
+  process.env.NODE_ENV === "development"
+    ? `http://localhost:9080`
+    : `file://${__dirname}/index.html`
 
-function createWindow () {
+function createWindow() {
   /**
    * Initial window options
    */
@@ -29,35 +32,35 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
 
-  mainWindow.on('closed', () => {
+  mainWindow.on("closed", () => {
     mainWindow = null
   })
-  ipcMain.on('close', e => {
+  ipcMain.on("close", e => {
     mainWindow.close()
     mainWindow = null
     app.quit()
   })
-  ipcMain.on('hide-window', e => {
+  ipcMain.on("hide-window", e => {
     mainWindow.minimize()
   })
-  ipcMain.on('max-window', e => {
-    if(mainWindow.isMaximized()) {
+  ipcMain.on("max-window", e => {
+    if (mainWindow.isMaximized()) {
       mainWindow.restore()
     } else {
-      mainWindow.maximize() 
+      mainWindow.maximize()
     }
   })
 }
 
-app.on('ready', createWindow)
+app.on("ready", createWindow)
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
     app.quit()
   }
 })
 
-app.on('activate', () => {
+app.on("activate", () => {
   if (mainWindow === null) {
     createWindow()
   }
